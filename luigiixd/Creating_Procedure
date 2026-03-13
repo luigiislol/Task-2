@@ -1,0 +1,27 @@
+BEGIN
+
+DECLARE sal1 DECIMAL(10,2);
+DECLARE sal2 DECIMAL(10,2);
+DECLARE name1 VARCHAR(50);
+DECLARE name2 VARCHAR(50);
+
+SELECT first_name, salary INTO name1, sal1
+FROM employees
+WHERE employee_id = emp1;
+
+SELECT first_name, salary INTO name2, sal2
+FROM employees
+WHERE employee_id = emp2;
+
+IF sal1 > sal2 THEN
+    SELECT CONCAT('Employee ', emp1, ' (', name1, ') has a higher salary than Employee ', emp2, ' (', name2, ')') AS Result;
+
+ELSEIF sal2 > sal1 THEN
+    SELECT CONCAT('Employee ', emp2, ' (', name2, ') has a higher salary than Employee ', emp1, ' (', name1, ')') AS Result;
+
+ELSE
+    SELECT 'Both employees have equal salaries' AS Result;
+
+END IF;
+
+END
